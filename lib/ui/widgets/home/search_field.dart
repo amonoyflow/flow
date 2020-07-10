@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginField extends StatelessWidget {
+class SearchField extends StatelessWidget {
   final TextEditingController controller;
   final FormFieldValidator<String> validator;
   final TextInputType keyboardType;
@@ -8,8 +8,7 @@ class LoginField extends StatelessWidget {
   final String labelText;
   final IconData icon;
 
-  LoginField({
-    Key key,
+  SearchField({
     this.labelText,
     this.icon,
     this.keyboardType,

@@ -16,10 +16,9 @@ class LoginForm extends StatefulWidget {
   LoginForm({
     Key key,
     @required UserServices userServices,
-  }) 
-  : assert(userServices != null),
-    _userServices = userServices,
-    super(key: key);
+  })  : assert(userServices != null),
+        _userServices = userServices,
+        super(key: key);
 
   State<LoginForm> createState() => _LoginFormState();
 }
@@ -53,9 +52,8 @@ class _LoginFormState extends State<LoginForm> {
       listener: (context, state) {
         if (state.isFailure) {
           Scaffold.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
               content: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -64,14 +62,12 @@ class _LoginFormState extends State<LoginForm> {
                 ],
               ),
               backgroundColor: Colors.red,
-            )
-          );
+            ));
         }
         if (state.isSubmitting) {
           Scaffold.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
               content: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -79,11 +75,11 @@ class _LoginFormState extends State<LoginForm> {
                   CircularProgressIndicator(),
                 ],
               ),
-            )
-          );
+            ));
         }
         if (state.isSuccess) {
-          BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLoggedIn());
+          BlocProvider.of<AuthenticationBloc>(context)
+              .add(AuthenticationLoggedIn());
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(
@@ -96,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Image.asset('assets/flutter_logo.png'),
+                      child: Image.asset('flutter_logo.png'),
                     ),
                     LoginField(
                       labelText: 'Email',
@@ -104,7 +100,9 @@ class _LoginFormState extends State<LoginForm> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       validator: (_) {
-                        return !state.isEmailValid ? 'Invalid Email' : null;
+                        return !state.isEmailValid 
+                          ? 'Invalid Email' 
+                          : null;
                       },
                     ),
                     LoginField(
@@ -113,7 +111,9 @@ class _LoginFormState extends State<LoginForm> {
                       obscureText: true,
                       controller: _passwordController,
                       validator: (_) {
-                        return !state.isPasswordValid ? 'Invalid Password' : null;
+                        return !state.isPasswordValid
+                          ? 'Invalid Password'
+                          : null;
                       },
                     ),
                     LoginRegisterButton(
@@ -130,6 +130,16 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     SizedBox(height: 10.0),
                     CreateAccount(userServices: userServices),
+                    RaisedButton(
+                      onPressed: () {
+                        _loginBloc.add(
+                          LoginWithCredentialsPressed(
+                            email: "amonoyflorante@yahoo.com",
+                            password: "test123456",
+                          ),
+                        );
+                      },
+                    )
                   ],
                 ),
               ),
@@ -141,10 +151,10 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   bool isLoginEnabled(LoginState state) {
-    return state.isFormValid 
-      && _emailController.text.isNotEmpty 
-      && _passwordController.text.isNotEmpty 
-      && !state.isSubmitting;
+    return state.isFormValid &&
+        _emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty &&
+        !state.isSubmitting;
   }
 
   void onEmailChanged() {
