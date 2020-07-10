@@ -34,9 +34,9 @@ class _DashboardMenuLayoutState extends State<DashboardMenuLayout>
     scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(controller);
     menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(controller);
     slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
-      .animate(controller);
+        .animate(controller);
     slideAboveAnimation = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0))
-      .animate(controller);
+        .animate(controller);
   }
 
   @override
@@ -73,7 +73,9 @@ class _DashboardMenuLayoutState extends State<DashboardMenuLayout>
                         icon: Icon(Icons.close),
                         iconSize: 40,
                         color: Colors.white,
-                        onPressed: () { onMenuItemClicked(); },
+                        onPressed: () {
+                          onMenuItemClicked();
+                        },
                       ),
                     ],
                   ),

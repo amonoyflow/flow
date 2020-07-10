@@ -10,10 +10,9 @@ class RegisterScreen extends StatelessWidget {
   RegisterScreen({
     Key key,
     @required UserServices userServices,
-  })
-  : assert(userServices != null),
-    _userServices = userServices,
-    super(key: key);
+  })  : assert(userServices != null),
+        _userServices = userServices,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -10,17 +10,14 @@ class LoginFacebook extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         color: Color(0xFF3B5998),
         icon: Icon(
-          Icons.lock, 
+          Icons.lock,
           color: Colors.white,
           size: 16.0,
         ),
         onPressed: () {
           BlocProvider.of<LoginBloc>(context).add(LoginWithFacebookPressed());
         },
-        label: Text(
-          'Facebook', 
-          style: TextStyle(color: Colors.white)
-        ),
+        label: Text('Facebook', style: TextStyle(color: Colors.white)),
       ),
     );
   }

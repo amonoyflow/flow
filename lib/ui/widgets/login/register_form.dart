@@ -13,7 +13,7 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
- final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   RegisterBloc _registerBloc;
@@ -53,7 +53,8 @@ class _RegisterFormState extends State<RegisterForm> {
             );
         }
         if (state.isSuccess) {
-          BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLoggedIn());
+          BlocProvider.of<AuthenticationBloc>(context)
+              .add(AuthenticationLoggedIn());
           Navigator.of(context).pop();
         }
         if (state.isFailure) {
@@ -96,7 +97,9 @@ class _RegisterFormState extends State<RegisterForm> {
                       obscureText: true,
                       controller: _passwordController,
                       validator: (_) {
-                        return !state.isPasswordValid ? 'Invalid Password' : null;
+                        return !state.isPasswordValid
+                            ? 'Invalid Password'
+                            : null;
                       },
                     ),
                     LoginRegisterButton(
@@ -116,10 +119,10 @@ class _RegisterFormState extends State<RegisterForm> {
   }
 
   bool isRegisterButtonEnabled(RegisterState state) {
-    return state.isFormValid 
-      && _emailController.text.isNotEmpty 
-      && _passwordController.text.isNotEmpty 
-      && !state.isSubmitting;
+    return state.isFormValid &&
+        _emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty &&
+        !state.isSubmitting;
   }
 
   void _onEmailChanged() {

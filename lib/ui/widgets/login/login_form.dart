@@ -100,9 +100,7 @@ class _LoginFormState extends State<LoginForm> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       validator: (_) {
-                        return !state.isEmailValid 
-                          ? 'Invalid Email' 
-                          : null;
+                        return !state.isEmailValid ? 'Invalid Email' : null;
                       },
                     ),
                     LoginField(
@@ -112,8 +110,8 @@ class _LoginFormState extends State<LoginForm> {
                       controller: _passwordController,
                       validator: (_) {
                         return !state.isPasswordValid
-                          ? 'Invalid Password'
-                          : null;
+                            ? 'Invalid Password'
+                            : null;
                       },
                     ),
                     LoginRegisterButton(

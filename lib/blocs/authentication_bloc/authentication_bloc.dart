@@ -3,18 +3,20 @@ import 'package:flow/services/user_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc
+    extends Bloc<AuthenticationEvent, AuthenticationState> {
   final UserServices _userServices;
 
-  AuthenticationBloc({@required UserServices userServices}) 
-  : assert(userServices != null), 
-    _userServices = userServices;
+  AuthenticationBloc({@required UserServices userServices})
+      : assert(userServices != null),
+        _userServices = userServices;
 
   @override
   AuthenticationState get initialState => AuthenticationInitial();
 
   @override
-  Stream<AuthenticationState> mapEventToState(AuthenticationEvent event) async* {
+  Stream<AuthenticationState> mapEventToState(
+      AuthenticationEvent event) async* {
     if (event is AuthenticationStarted) {
       yield* mapAuthenticationStartedToState();
     } else if (event is AuthenticationLoggedIn) {

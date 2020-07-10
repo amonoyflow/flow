@@ -8,7 +8,9 @@ abstract class AuthenticationState extends Equatable {
 }
 
 class AuthenticationInitial extends AuthenticationState {}
+
 class AuthenticationFailure extends AuthenticationState {}
+
 class AuthenticationSuccess extends AuthenticationState {
   final String displayName;
 

@@ -10,17 +10,14 @@ class LoginGoogle extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         color: Color(0xFFDB4437),
         icon: Icon(
-          Icons.lock, 
+          Icons.lock,
           color: Colors.white,
           size: 16.0,
         ),
         onPressed: () {
           BlocProvider.of<LoginBloc>(context).add(LoginWithGooglePressed());
         },
-        label: Text(
-          'Google', 
-          style: TextStyle(color: Colors.white)
-        ),
+        label: Text('Google', style: TextStyle(color: Colors.white)),
       ),
     );
   }

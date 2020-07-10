@@ -9,13 +9,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final UserServices _userServices;
 
   RegisterBloc({@required UserServices userServices})
-    : assert(userServices != null),
-      _userServices = userServices;
+      : assert(userServices != null),
+        _userServices = userServices;
 
   @override
   RegisterState get initialState => RegisterState.initial();
 
-@override
+  @override
   Stream<RegisterState> mapEventToState(RegisterEvent event) async* {
     if (event is RegisterEmailChanged) {
       yield* _mapRegisterEmailChangedToState(event.email);
@@ -28,15 +28,16 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   @override
   Stream<Transition<RegisterEvent, RegisterState>> transformEvents(
-    Stream<RegisterEvent> events,
-    TransitionFunction<RegisterEvent, RegisterState> transitionFn
-  ) {
+      Stream<RegisterEvent> events,
+      TransitionFunction<RegisterEvent, RegisterState> transitionFn) {
     final nonDebounceStream = events.where((event) {
-      return (event is! RegisterEmailChanged && event is! RegisterPasswordChanged);
+      return (event is! RegisterEmailChanged &&
+          event is! RegisterPasswordChanged);
     });
 
     final debounceStream = events.where((event) {
-      return (event is RegisterEmailChanged || event is RegisterPasswordChanged);
+      return (event is RegisterEmailChanged ||
+          event is RegisterPasswordChanged);
     }).debounceTime(Duration(milliseconds: 300));
 
     return super.transformEvents(
@@ -49,7 +50,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     yield state.update(isEmailValid: Validators.isValidEmail(email));
   }
 
-  Stream<RegisterState> _mapRegisterPasswordChangedToState(String password) async* {
+  Stream<RegisterState> _mapRegisterPasswordChangedToState(
+      String password) async* {
     yield state.update();
   }
 

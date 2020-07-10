@@ -6,12 +6,7 @@ class MenuItem extends StatelessWidget {
   final IconData icon;
   final bool isSelected;
 
-  MenuItem({
-    this.onTap, 
-    this.labelText, 
-    this.icon, 
-    this.isSelected
-  });
+  MenuItem({this.onTap, this.labelText, this.icon, this.isSelected});
 
   @override
   Widget build(BuildContext context) {

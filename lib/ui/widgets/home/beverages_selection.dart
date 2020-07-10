@@ -16,9 +16,8 @@ class BeveragesSelection extends StatelessWidget {
       padding: EdgeInsets.all(0),
       color: Color(0x1AAAE5EE),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(color: Color(0x33AAE5EE))
-      ),
+          borderRadius: BorderRadius.circular(18.0),
+          side: BorderSide(color: Color(0x33AAE5EE))),
       onPressed: () {},
       child: SingleChildScrollView(
         child: Center(
@@ -26,13 +25,11 @@ class BeveragesSelection extends StatelessWidget {
             children: <Widget>[
               SvgPicture.asset(asset, height: 40),
               SizedBox(height: 10),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 14, 
-                  color: Color(0xFF43AAC2),
-                )
-              ),
+              Text(label,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF43AAC2),
+                  )),
             ],
           ),
         ),

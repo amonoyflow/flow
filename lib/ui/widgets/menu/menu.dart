@@ -52,7 +52,8 @@ class Menu extends StatelessWidget {
                   icon: FlowIcons.logout,
                   labelText: "Logout",
                   onTap: () {
-                    BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLoggedOut());
+                    BlocProvider.of<AuthenticationBloc>(context)
+                        .add(AuthenticationLoggedOut());
                   },
                   isSelected: selectedIndex == 2,
                 ),

@@ -8,10 +8,9 @@ class LoginRegisterButton extends StatelessWidget {
     Key key,
     String labelText,
     VoidCallback onPressed,
-  })
-  : _onPressed = onPressed,
-    _labelText = labelText,
-    super(key: key);
+  })  : _onPressed = onPressed,
+        _labelText = labelText,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

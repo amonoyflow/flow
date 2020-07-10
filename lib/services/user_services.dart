@@ -11,23 +11,20 @@ class UserServices {
     FirebaseAuth firebaseAuth,
     GoogleSignIn googleSignIn,
     FacebookLogin facebookLogin,
-  }) : 
-  _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
-  _googleSignIn = googleSignIn ?? GoogleSignIn(),
-  _facebookLogin = facebookLogin ?? FacebookLogin();
+  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+        _googleSignIn = googleSignIn ?? GoogleSignIn(),
+        _facebookLogin = facebookLogin ?? FacebookLogin();
 
   Future<FirebaseUser> signInWithGoogle() async {
-    final GoogleSignInAccount googleAccount = 
-      await _googleSignIn.signIn();
+    final GoogleSignInAccount googleAccount = await _googleSignIn.signIn();
 
-    final GoogleSignInAuthentication googleAuthentication = 
-      await googleAccount.authentication;
+    final GoogleSignInAuthentication googleAuthentication =
+        await googleAccount.authentication;
 
-    final AuthCredential credential = 
-      GoogleAuthProvider.getCredential(
-        idToken: googleAuthentication.idToken,
-        accessToken: googleAuthentication.accessToken,
-      );
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      idToken: googleAuthentication.idToken,
+      accessToken: googleAuthentication.accessToken,
+    );
 
     await _firebaseAuth.signInWithCredential(credential);
     return _firebaseAuth.currentUser();
@@ -35,7 +32,7 @@ class UserServices {
 
   Future<FirebaseUser> signInWithFacebook() async {
     FacebookLoginResult result = await _facebookLogin.logIn(['email']);
-    
+
     var token = result.accessToken.token;
     var credential = FacebookAuthProvider.getCredential(accessToken: token);
     await _firebaseAuth.signInWithCredential(credential);
@@ -43,7 +40,7 @@ class UserServices {
   }
 
   Future<void> signInWithCredentials({
-    String email, 
+    String email,
     String password,
   }) async {
     return await _firebaseAuth.signInWithEmailAndPassword(
@@ -53,9 +50,9 @@ class UserServices {
   }
 
   Future<void> signUp({
-    String email, 
+    String email,
     String password,
-    }) async {
+  }) async {
     return await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,

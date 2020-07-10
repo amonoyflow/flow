@@ -11,10 +11,9 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationState> {
   });
 
   @override
-  NavigationState get initialState => 
-    HomeScreen(
-      onMenuTap: onMenuTap,
-    );
+  NavigationState get initialState => HomeScreen(
+        onMenuTap: onMenuTap,
+      );
 
   @override
   Stream<NavigationState> mapEventToState(NavigationEvent event) async* {

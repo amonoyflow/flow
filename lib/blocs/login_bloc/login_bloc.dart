@@ -8,9 +8,9 @@ import 'package:meta/meta.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   UserServices userServices;
 
-  LoginBloc({@required UserServices userServices}) 
-  : assert(userServices != null),
-    userServices = userServices;
+  LoginBloc({@required UserServices userServices})
+      : assert(userServices != null),
+        userServices = userServices;
 
   @override
   LoginState get initialState => LoginState.initial();
@@ -35,9 +35,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   Stream<Transition<LoginEvent, LoginState>> transformEvents(
-    Stream<LoginEvent> events, 
-    TransitionFunction<LoginEvent, LoginState> transitionFn) {
-
+      Stream<LoginEvent> events,
+      TransitionFunction<LoginEvent, LoginState> transitionFn) {
     final nonDebounceStream = events.where((event) {
       return (event is! LoginEmailChanged && event is! LoginPasswordChanged);
     });
@@ -47,9 +46,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     }).debounceTime(Duration(milliseconds: 300));
 
     return super.transformEvents(
-      nonDebounceStream.mergeWith([debounceStream]), 
-      transitionFn
-    );
+        nonDebounceStream.mergeWith([debounceStream]), transitionFn);
   }
 
   Stream<LoginState> _mapLoginEmailChangedToState(String email) async* {
@@ -84,7 +81,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }) async* {
     yield LoginState.loading();
     try {
-      await userServices.signInWithCredentials(email: email, password: password);
+      await userServices.signInWithCredentials(
+          email: email, password: password);
       yield LoginState.success();
     } catch (_) {
       yield LoginState.failure();

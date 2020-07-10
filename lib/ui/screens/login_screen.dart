@@ -10,10 +10,9 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({
     Key key,
     @required UserServices userServices,
-  }) 
-  : assert(userServices != null),
-    _userServices = userServices,
-    super(key: key);
+  })  : assert(userServices != null),
+        _userServices = userServices,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

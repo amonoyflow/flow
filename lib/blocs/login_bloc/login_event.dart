@@ -49,5 +49,6 @@ class LoginWithCredentialsPressed extends LoginEvent {
   List<Object> get props => [email, password];
 
   @override
-  String toString() => 'Login with credentails pressed { email: $email, password: $password }';
+  String toString() =>
+      'Login with credentails pressed { email: $email, password: $password }';
 }
