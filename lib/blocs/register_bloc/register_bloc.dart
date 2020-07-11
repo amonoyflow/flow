@@ -1,9 +1,12 @@
-import 'package:flow/blocs/register_bloc/_register.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flow/common/validators.dart';
 import 'package:flow/services/user_services.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+
+part 'register_event.dart';
+part 'register_state.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final UserServices _userServices;

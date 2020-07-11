@@ -1,5 +1,5 @@
-import 'package:flow/blocs/authentication_bloc/_authentication.dart';
-import 'package:flow/blocs/navigation_bloc/_navigation.dart';
+import 'package:flow/blocs/authentication_bloc/authentication_bloc.dart';
+import 'package:flow/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:flow/common/flow_icons.dart';
 import 'package:flow/ui/widgets/menu/menu_item.dart';
 import 'package:flutter/material.dart';

@@ -1,13 +1,13 @@
-import 'package:flow/ui/widgets/button.dart';
+import 'package:flow/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:flow/ui/widgets/login/create_account.dart';
 import 'package:flow/ui/widgets/login/login_divider.dart';
 import 'package:flow/ui/widgets/login/login_facebook.dart';
 import 'package:flow/ui/widgets/login/login_field.dart';
-import 'package:flow/blocs/authentication_bloc/_authentication.dart';
 import 'package:flow/ui/widgets/login/login_google.dart';
-import 'package:flow/blocs/login_bloc/_login.dart';
+import 'package:flow/blocs/login_bloc/login_bloc.dart';
 import 'package:flow/services/user_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flow/ui/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -92,7 +92,7 @@ class _LoginFormState extends State<LoginForm> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Image.asset('flutter_logo.png'),
+                      child: Image.asset('assets/flutter_logo.png'),
                     ),
                     LoginField(
                       labelText: 'Email',

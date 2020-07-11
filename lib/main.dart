@@ -1,3 +1,4 @@
+import 'package:flow/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:flow/common/bloc_delegator.dart';
 import 'package:flow/services/user_services.dart';
 import 'package:flow/ui/screens/login_screen.dart';
@@ -5,7 +6,6 @@ import 'package:flow/ui/screens/splash_screen.dart';
 import 'package:flow/ui/widgets/menu/dashboard_menu_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'blocs/authentication_bloc/_authentication.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

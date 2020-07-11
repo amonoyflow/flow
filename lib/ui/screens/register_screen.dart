@@ -1,5 +1,5 @@
+import 'package:flow/blocs/register_bloc/register_bloc.dart';
 import 'package:flow/ui/widgets/login/register_form.dart';
-import 'package:flow/blocs/register_bloc/_register.dart';
 import 'package:flow/services/user_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';

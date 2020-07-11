@@ -1,9 +1,12 @@
-import 'package:flow/blocs/login_bloc/_login.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flow/common/validators.dart';
 import 'package:flow/services/user_services.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+
+part 'login_event.dart';
+part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   UserServices userServices;

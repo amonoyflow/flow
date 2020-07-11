@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:flow/blocs/navigation_bloc/_navigation.dart';
+import 'package:flow/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:flow/ui/screens/home_screen.dart';
 import 'package:flow/ui/screens/utility_screen.dart';
 import 'package:flow/ui/widgets/menu/dashboard.dart';

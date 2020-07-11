@@ -1,6 +1,6 @@
-import 'package:flow/blocs/login_bloc/_login.dart';
-import 'package:flutter/material.dart';
+import 'package:flow/blocs/login_bloc/login_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 
 class LoginFacebook extends StatelessWidget {
   @override

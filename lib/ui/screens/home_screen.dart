@@ -1,4 +1,4 @@
-import 'package:flow/blocs/navigation_bloc/_navigation.dart';
+import 'package:flow/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:flow/ui/widgets/home/beverages_selection.dart';
 import 'package:flow/ui/widgets/home/search_field.dart';
 import 'package:flutter/material.dart';

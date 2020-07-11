@@ -1,4 +1,4 @@
-import 'package:flow/blocs/navigation_bloc/_navigation.dart';
+import 'package:flow/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:flutter/material.dart';
 
 class UtilityScreen extends StatefulWidget with NavigationState {
