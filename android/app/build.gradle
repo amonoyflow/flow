@@ -41,7 +41,7 @@ android {
         applicationId "com.flow.flow"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode System.getenv('APPCENTER_BUILD_ID').toInteger()
+        versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
