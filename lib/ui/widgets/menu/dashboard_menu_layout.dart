@@ -22,20 +22,15 @@ class _DashboardMenuLayoutState extends State<DashboardMenuLayout>
   double screenWidth, screenHeight;
   Duration duration = const Duration(milliseconds: 200);
   AnimationController controller;
-  Animation<double> scaleAnimation;
   Animation<double> menuScaleAnimation;
   Animation<Offset> slideAnimation;
-  Animation<Offset> slideAboveAnimation;
 
   @override
   void initState() {
     super.initState();
     controller = AnimationController(vsync: this, duration: duration);
-    scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(controller);
     menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(controller);
     slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
-        .animate(controller);
-    slideAboveAnimation = Tween<Offset>(begin: Offset(0, -1), end: Offset(0, 0))
         .animate(controller);
   }
 
@@ -58,29 +53,6 @@ class _DashboardMenuLayoutState extends State<DashboardMenuLayout>
         child: SafeArea(
           child: Stack(
             children: <Widget>[
-              SlideTransition(
-                position: slideAboveAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        widget.name,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.close),
-                        iconSize: 40,
-                        color: Colors.white,
-                        onPressed: () {
-                          onMenuItemClicked();
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               BlocBuilder<NavigationBloc, NavigationState>(
                 builder: (context, NavigationState navigationState) {
                   return Menu(
@@ -94,7 +66,6 @@ class _DashboardMenuLayoutState extends State<DashboardMenuLayout>
               Dashboard(
                 duration: duration,
                 onMenuTap: onMenuTap,
-                scaleAnimation: scaleAnimation,
                 isCollapsed: isCollapsed,
                 screenWidth: screenWidth,
                 child: BlocBuilder<NavigationBloc, NavigationState>(

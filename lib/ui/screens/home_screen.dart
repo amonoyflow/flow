@@ -33,7 +33,7 @@ class _HomeState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: <Widget>[
           Stack(
@@ -53,6 +53,7 @@ class _HomeState extends State<HomeScreen> {
               ),
             ],
           ),
+          SizedBox(height: 10),
           SearchField(
             labelText: 'Search for Beverages...',
             icon: Icons.search,

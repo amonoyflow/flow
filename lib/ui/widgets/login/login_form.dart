@@ -6,6 +6,7 @@ import 'package:flow/ui/widgets/login/login_field.dart';
 import 'package:flow/ui/widgets/login/login_google.dart';
 import 'package:flow/blocs/login_bloc/login_bloc.dart';
 import 'package:flow/services/user_services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flow/ui/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -128,16 +129,6 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     SizedBox(height: 10.0),
                     CreateAccount(userServices: userServices),
-                    RaisedButton(
-                      onPressed: () {
-                        _loginBloc.add(
-                          LoginWithCredentialsPressed(
-                            email: "amonoyflorante@yahoo.com",
-                            password: "test123456",
-                          ),
-                        );
-                      },
-                    )
                   ],
                 ),
               ),
@@ -149,6 +140,7 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   bool isLoginEnabled(LoginState state) {
+    if (kDebugMode) return true;
     return state.isFormValid &&
         _emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty &&
@@ -168,11 +160,20 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void onFormSubmitted() {
-    _loginBloc.add(
-      LoginWithCredentialsPressed(
-        email: _emailController.text,
-        password: _passwordController.text,
-      ),
-    );
+    if (kDebugMode) {
+      _loginBloc.add(
+        LoginWithCredentialsPressed(
+          email: "amonoyflorante@yahoo.com",
+          password: "test123456",
+        ),
+      );
+    } else {
+      _loginBloc.add(
+        LoginWithCredentialsPressed(
+          email: _emailController.text,
+          password: _passwordController.text,
+        ),
+      );
+    }
   }
 }
